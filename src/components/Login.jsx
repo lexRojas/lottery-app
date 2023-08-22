@@ -16,7 +16,7 @@ function Login() {
   return (
     <Container fluid="solid fondo">
       <Row className="p-1 justify-content-center">
-        <Col className="col-md-2">
+        <Col className="col-sm-3">
           <Card >
             <Card.Body>
               <Card.Title>Miller Constructora</Card.Title>
