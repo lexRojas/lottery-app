@@ -5,6 +5,8 @@ import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
+import '../css/style.css'
+
 function Login() {
   function handleSubmit(e) {
     e.preventDefault();
@@ -12,7 +14,7 @@ function Login() {
   }
 
   return (
-    <Container fluid="md bg-secondary  solid">
+    <Container fluid="md solid fondo" background-color="blue">
       <Row className="p-1 justify-content-center">
         <Col className="col-lg-3">
           <Card >
