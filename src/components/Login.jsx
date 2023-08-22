@@ -14,7 +14,7 @@ function Login() {
   }
 
   return (
-    <Container fluid="md solid fondo" background-color="blue">
+    <Container fluid="fondo" background-color="blue">
       <Row className="p-1 justify-content-center">
         <Col className="col-lg-3">
           <Card >
