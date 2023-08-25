@@ -24,20 +24,35 @@ function MySideNav() {
             >
                 <SideNav.Toggle />
                 <SideNav.Nav className = 'barraLateral' defaultSelected="home">
-                    <NavItem eventKey="home">
-                        <NavIcon>
-                            <i className="fa fa-fw fa-user" style={{ fontSize: '1.75em' }} /> 
-                        </NavIcon>
+                    <NavItem id="nav-item" eventKey="catalogos">
+                        <NavIcon> <i className="fa fa-database" style={{ fontSize: '1.75em' }} /> </NavIcon>
+                        <NavText>  Catálogos </NavText>
+                            <NavItem eventKey="catalogos_1">
+                                <NavText> Catalogo 1  </NavText>
+                            </NavItem>
+                            <NavItem eventKey="catalogos_2">
+                                <NavText> Catalogo 2  </NavText>
+                            </NavItem>
+                            <NavItem eventKey="catalogos_3">
+                                <NavText> Catalogo 3  </NavText>
+                            </NavItem>
+                    </NavItem>
+                    <NavItem id="nav-item" eventKey="procesos">
+                        <NavIcon> <i className="fa fa-cogs" style={{ fontSize: '1.75em' }} /></NavIcon>
                         <NavText>
-                         Home
+                            Procesos
                         </NavText>
                     </NavItem>
-                    <NavItem eventKey="devices">
-                        <NavIcon>
-                            <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
-                        </NavIcon>
+                    <NavItem id="nav-item" eventKey="reportes">
+                        <NavIcon> <i className="fa fa-newspaper-o" style={{ fontSize: '1.75em' }} /> </NavIcon>
                         <NavText>
-                            Devices
+                            Reportes
+                        </NavText>
+                    </NavItem>
+                    <NavItem id="nav-item" eventKey="seguridad">
+                        <NavIcon> <i className="fa fa-key" style={{ fontSize: '1.75em' }} />  </NavIcon>
+                        <NavText> 
+                            Seguridad
                         </NavText>
                     </NavItem>
                 </SideNav.Nav>
