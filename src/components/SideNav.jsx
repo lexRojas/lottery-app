@@ -10,15 +10,29 @@ import SideNav, {
 } from "@trendmicro/react-sidenav";
 
 import "@trendmicro/react-sidenav/dist/react-sidenav.css";
+import { useNavigate } from "react-router-dom";
 
 function MySideNav() {
+
+    const navegate = useNavigate()
 
   return (
  
         <React.Fragment >
             <SideNav 
                 onSelect={(selected) => {
+                    switch (selected) {
+                        case 'exit':
+                            
+                            navegate('/')
+
+
+                            break;
                     
+                        default:
+                            break;
+                    }
+
                 }}
                 id= 'sdb'
             >
@@ -44,7 +58,7 @@ function MySideNav() {
                         </NavText>
                     </NavItem>
                     <NavItem id="nav-item" eventKey="reportes">
-                        <NavIcon> <i className="fa fa-newspaper-o" style={{ fontSize: '1.75em' }} /> </NavIcon>
+                        <NavIcon> <i className="fa fa-line-chart" style={{ fontSize: '1.75em' }} /> </NavIcon>
                         <NavText>
                             Reportes
                         </NavText>
@@ -53,6 +67,12 @@ function MySideNav() {
                         <NavIcon> <i className="fa fa-key" style={{ fontSize: '1.75em' }} />  </NavIcon>
                         <NavText> 
                             Seguridad
+                        </NavText>
+                    </NavItem>
+                    <NavItem id="nav-item" eventKey="exit">
+                        <NavIcon> <i className="fa fa-power-off" style={{ fontSize: '1.75em' }} />  </NavIcon>
+                        <NavText> 
+                            Salir
                         </NavText>
                     </NavItem>
                 </SideNav.Nav>

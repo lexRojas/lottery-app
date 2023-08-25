@@ -4,13 +4,24 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
+
 
 import '../css/style.css'
 
+
 function Login() {
+
+  const navegate = useNavigate() 
+
+
+
   function handleSubmit(e) {
     e.preventDefault();
     console.log('You clicked submit.');
+    navegate('/app')
+    
+
   }
 
   return (
