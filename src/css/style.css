@@ -1,3 +1,16 @@
+.barra {
+    background-color: #13305f;
+    color:white;
+    height: 80;
+    padding: 8px;
+    margin-top: 0px;
+    padding-right: 0;
+    margin-left: -10px;
+    margin-right: -10px;
+    text-align: center;
+    font-style: Georgia;
+    font-size: 20px;
+} 
 .fondo {
     background-color: #2d579a;
 }
@@ -8,10 +21,11 @@
 }
 
 #sdb{
-    background-color: #2d579a;;
+    background-color: #2d579a;
 }
 
 
 #nav-item:hover{
-    background-color: #5579b3;;
+    background-color: #5579b3;
 }
+
