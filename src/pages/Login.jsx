@@ -30,10 +30,8 @@ function Login() {
         <Col className="col-sm-3">
           <Card >
             <Card.Body>
-              <Card.Title>Miller Constructora</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                Sistema de Control de Horas
-              </Card.Subtitle>
+              <Card.Title>Sistema de Control de Horas</Card.Title>
+ 
               <Card.Text>
                 <Form>
                   <Form.Group
