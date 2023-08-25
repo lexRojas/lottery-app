@@ -1,12 +1,20 @@
-import Login from "./components/Login";
-import MySideNav from "./components/SideNav";
+import Login from "./pages/Login";
 import HeaderBar from "./components/HeaderBar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import MillerApp from "./pages/MillerApp";
 
 function App() {
   return (
     <div className="App">
-      <HeaderBar/>
-      <MySideNav/>
+     
+      <BrowserRouter>
+      <HeaderBar />
+        <Routes>
+          <Route path="/" element= {<Login />} />
+          <Route path="/app" element= {<MillerApp />} />
+          <Route path="*" element= {<Login />} />
+        </Routes>       
+      </BrowserRouter>
     </div>
   );
 }
