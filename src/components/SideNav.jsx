@@ -1,5 +1,5 @@
 import React from "react";
-import '../css/style.css'
+import "../css/style.css";
 
 import SideNav, {
   Toggle,
@@ -13,73 +13,92 @@ import "@trendmicro/react-sidenav/dist/react-sidenav.css";
 import { useNavigate } from "react-router-dom";
 
 function MySideNav() {
-
-    const navegate = useNavigate()
+  const navegate = useNavigate();
 
   return (
- 
-        <React.Fragment >
-            <SideNav 
-                onSelect={(selected) => {
-                    switch (selected) {
-                        case 'exit':
-                            
-                            navegate('/')
+    <React.Fragment>
+      <SideNav
+        onSelect={(selected) => {
+          switch (selected) {
+            case "exit":
+              navegate("/");
 
+              break;
 
-                            break;
-                    
-                        default:
-                            break;
-                    }
+            default:
+              break;
+          }
+        }}
+        id="sdb"
+      >
+        <SideNav.Toggle />
+        <SideNav.Nav className="barraLateral" defaultSelected="proyectos">
 
-                }}
-                id= 'sdb'
-            >
-                <SideNav.Toggle />
-                <SideNav.Nav className = 'barraLateral' defaultSelected="home">
-                    <NavItem id="nav-item" eventKey="catalogos">
-                        <NavIcon> <i className="fa fa-database" style={{ fontSize: '1.75em' }} /> </NavIcon>
-                        <NavText>  Catálogos </NavText>
-                            <NavItem eventKey="catalogos_1">
-                                <NavText> Catalogo 1  </NavText>
-                            </NavItem>
-                            <NavItem eventKey="catalogos_2">
-                                <NavText> Catalogo 2  </NavText>
-                            </NavItem>
-                            <NavItem eventKey="catalogos_3">
-                                <NavText> Catalogo 3  </NavText>
-                            </NavItem>
-                    </NavItem>
-                    <NavItem id="nav-item" eventKey="procesos">
-                        <NavIcon> <i className="fa fa-cogs" style={{ fontSize: '1.75em' }} /></NavIcon>
-                        <NavText>
-                            Procesos
-                        </NavText>
-                    </NavItem>
-                    <NavItem id="nav-item" eventKey="reportes">
-                        <NavIcon> <i className="fa fa-line-chart" style={{ fontSize: '1.75em' }} /> </NavIcon>
-                        <NavText>
-                            Reportes
-                        </NavText>
-                    </NavItem>
-                    <NavItem id="nav-item" eventKey="seguridad">
-                        <NavIcon> <i className="fa fa-key" style={{ fontSize: '1.75em' }} />  </NavIcon>
-                        <NavText> 
-                            Seguridad
-                        </NavText>
-                    </NavItem>
-                    <NavItem id="nav-item" eventKey="exit">
-                        <NavIcon> <i className="fa fa-power-off" style={{ fontSize: '1.75em' }} />  </NavIcon>
-                        <NavText> 
-                            Salir
-                        </NavText>
-                    </NavItem>
-                </SideNav.Nav>
-            </SideNav>
-        </React.Fragment>
-    )}
+          <NavItem id="proyectos" eventKey="presupuestos">
+            <NavIcon>
+              {" "}
+              <i className="fa fa-home" style={{ fontSize: "1.75em" }} />
+            </NavIcon>
+            <NavText>Procesos</NavText>
+          </NavItem>
 
-
+          <NavItem id="procesos" eventKey="procesos">
+            <NavIcon>
+              {" "}
+              <i className="fa fa-cogs" style={{ fontSize: "1.75em" }} />
+            </NavIcon>
+            <NavText>Procesos</NavText>
+          </NavItem>
+          <NavItem id="reportes" eventKey="reportes">
+            <NavIcon>
+              {" "}
+              <i
+                className="fa fa-line-chart"
+                style={{ fontSize: "1.75em" }}
+              />{" "}
+            </NavIcon>
+            <NavText>Reportes</NavText>
+          </NavItem>
+          <NavItem id="catalogos" eventKey="catalogos">
+            <NavIcon>
+              {" "}
+              <i
+                className="fa fa-database"
+                style={{ fontSize: "1.75em" }}
+              />{" "}
+            </NavIcon>
+            <NavText> Catálogos </NavText>
+            <NavItem eventKey="catalogos_1">
+              <NavText> Catalogo 1 </NavText>
+            </NavItem>
+            <NavItem eventKey="catalogos_2">
+              <NavText> Catalogo 2 </NavText>
+            </NavItem>
+            <NavItem eventKey="catalogos_3">
+              <NavText> Catalogo 3 </NavText>
+            </NavItem>
+          </NavItem>
+          <NavItem id="seguridad" eventKey="seguridad">
+            <NavIcon>
+              {" "}
+              <i className="fa fa-key" style={{ fontSize: "1.75em" }} />{" "}
+            </NavIcon>
+            <NavText>Seguridad</NavText>
+          </NavItem>
+          <NavItem id="exit" eventKey="exit">
+            <NavIcon>
+              {" "}
+              <i
+                className="fa fa-power-off"
+                style={{ fontSize: "1.75em" }}
+              />{" "}
+            </NavIcon>
+            <NavText>Salir</NavText>
+          </NavItem>
+        </SideNav.Nav>
+      </SideNav>
+    </React.Fragment>
+  );
+}
 
 export default MySideNav;

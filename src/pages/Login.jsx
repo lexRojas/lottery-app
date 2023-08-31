@@ -5,23 +5,24 @@ import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
-
+import {useContext} from 'react'
+import Context from '../context/Context'
 
 import '../css/style.css'
 
 
 function Login() {
 
+  
+  const {get_presupuesto} = useContext(Context);
   const navegate = useNavigate() 
 
 
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log('You clicked submit.');
+    await get_presupuesto()
     navegate('/app')
-    
-
   }
 
   return (
