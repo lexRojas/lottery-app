@@ -1,21 +1,13 @@
-import React from 'react'
-import MySideNav from '../components/SideNav'
-import ProyectoSelector from '../components/ProyectoSelector'
+import React from "react";
+import MySideNav from "../components/SideNav";
+import ProyectoSelector from "../components/ProyectoSelector";
 
 function MillerApp() {
-
-
   return (
-   
     <div>
         <MySideNav />
-       <>
-
-       <ProyectoSelector />
-       </>
+        <ProyectoSelector />
     </div>
-
-  )
+  );
 }
-
-export default MillerApp
+export default MillerApp;

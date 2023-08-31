@@ -14,26 +14,28 @@ import '../css/style.css'
 function Login() {
 
   
-  const {get_presupuesto} = useContext(Context);
+  const {get_presupuesto } = useContext(Context);
   const navegate = useNavigate() 
 
+  async function loadData() {
+    await get_presupuesto();
+  }
 
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-    await get_presupuesto()
+    loadData();
     navegate('/app')
   }
 
   return (
-    <Container fluid=" p-2 solid fondo">
+    <Container fluid="-2 solid fondo">
       <Row className="p-1 justify-content-center">
         <Col className="col-sm-3">
           <Card >
             <Card.Body>
               <Card.Title>Sistema de Control de Horas</Card.Title>
- 
-              <Card.Text>
+               <Card.Text>
                 <Form>
                   <Form.Group
                     className="mb-3"
@@ -49,7 +51,7 @@ function Login() {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" />
                   </Form.Group>
-                  <Container fluid>
+                  
                     <Row className="p-1 justify-content-center">
                       <Col>
                         <Button variant="primary" type="submit" onClick={handleSubmit}>
@@ -62,7 +64,7 @@ function Login() {
                         </Button>
                       </Col>
                     </Row>
-                  </Container>
+                  
                 </Form> 
               </Card.Text>
             </Card.Body>

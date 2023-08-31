@@ -4,12 +4,11 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {useForm} from "react-hook-form";
 import Context from "../context/Context";
+import Form from 'react-bootstrap/Form';
 
 function ProyectoSelector() {
-  const {get_presupuesto, presupuesto} = useContext(Context);
+  const {get_presupuesto, tb_presupuesto} = useContext(Context);
   const { register } = useForm();
-  const [plantilla, setPlantilla] = useState("<option key='none' value='none'>No hay elementos</option>")
-
 
   async function loadData(){
     await get_presupuesto();
@@ -17,28 +16,35 @@ function ProyectoSelector() {
 
   useEffect(() => {
   
-    console.log(presupuesto)
+    console.log(tb_presupuesto)
 
-  }, [presupuesto])
+  }, [tb_presupuesto])
   
 
   return (
-    <Container>
-      <Row>
-        <Col className="md-2">
-          <form>
-            <label htmlFor="filtro_proyecto">
-              Filtro de Busqueda de proyecto
-            </label>
-            <input type="text" name="filtro" {...register("filtro")} />
+    <Container fluid="md">
+      <Row className="justify-content-center">
+        <Col xs={5}>
+          <Form>
+            <Form.Group className="mb-3" controlId="frmFiltro">
+              <Form.Label>Filtro de Busqueda de proyecto </Form.Label>
+              <Form.Control type="text" placeholder="Digite un nombre..." 
+              {...register("filtro")} />
 
-            <label htmlFor="selector"> Seleccione el proyecto</label>
-            <select name="proyectos" id="proyectos" value="none" {
-                ...register('proyectos')
-            }>
-              <option key='none' value='none'>No hay elementos</option>
-            </select>
-          </form>
+            </Form.Group>
+            <Form.Group> 
+                <Form.Label>Seleccione el proyecto</Form.Label>
+                <Form.Select> 
+                  {(tb_presupuesto.length>0)?(
+                  tb_presupuesto.map(({presupuesto,proyecto},i) => (
+                      <option key= {i} value={presupuesto }>{proyecto}</option>
+                  ))
+                  ):(
+                      <option value="No"> Cargando proyectos...</option>
+                  )}
+                </Form.Select>
+            </Form.Group>
+          </Form>
         </Col>
       </Row>
     </Container>

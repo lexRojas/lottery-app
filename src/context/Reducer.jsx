@@ -7,7 +7,7 @@ export default (state, action) => {
     case GET_PRESUPUESTOS:
       return {
         ...state,
-        presupuestos: payload,
+        tb_presupuesto: payload,
       };
     case SET_ID_PROYECTO:
       return {

@@ -1,7 +1,11 @@
 //Creo mi clase contexto 
-
 import { createContext } from "react";
-const Context = createContext()
 
-export default Context
+const estadoInicial = {
+    tb_presupuesto: [],
+    id_proyecto: ""
+  };
 
+const MiContext = createContext( estadoInicial)
+
+export default MiContext

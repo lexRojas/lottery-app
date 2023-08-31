@@ -5,20 +5,20 @@ import MillerApp from "./pages/MillerApp";
 import UseEstado from "./context/UseEstado";
 
 function App() {
+
   return (
-    <div className="App">
-     
-     <UseEstado>
-      <BrowserRouter>
-      <HeaderBar />
-        <Routes>
-          <Route path="/" element= {<Login />} />
-          <Route path="/app" element= {<MillerApp />} />
-          <Route path="*" element= {<Login />} />
-        </Routes>       
-      </BrowserRouter>
-      </UseEstado>
-    </div>
+    <UseEstado>
+      <div className="App">
+        <HeaderBar />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/app" element={<MillerApp />} />
+            <Route path="*" element={<Login />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </UseEstado>
   );
 }
 
