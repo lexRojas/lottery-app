@@ -1,31 +1,46 @@
 .barra {
-    background-color: #13305f;
-    color:white;
-    height: 80;
-    padding: 8px;
-    margin-top: 0px;
-    padding-right: 0;
-    margin-left: -10px;
-    margin-right: -10px;
-    text-align: center;
-    font-style: Georgia;
-    font-size: 20px;
-} 
+  background-color: #13305f;
+  color: white;
+  height: 80;
+  padding: 8px;
+  margin-top: 0px;
+  padding-right: 0;
+  margin-left: -10px;
+  margin-right: -10px;
+  text-align: center;
+  font-style: Georgia;
+  font-size: 20px;
+}
 .fondo {
-    background-color: #2d579a;
+  background-color: #394a64;
 }
 
 .barraLateral {
-    background-color: #2d579a;
-    background:#2d579a;
+  background-color: #2d579a;
+  background: #2d579a;
 }
 
-#sdb{
-    background-color: #2d579a;
+#sdb {
+  background-color: #2d579a;
 }
 
-
-#nav-item:hover{
-    background-color: #5579b3;
+#nav-item:hover {
+  background-color: #5579b3;
 }
 
+.body {
+  background-color: aqua;
+  max-height: 500px;
+}
+.bordes {
+  border: 1px solid rgb(22, 32, 126);
+  padding: 5px;
+  border-radius: 10px;
+}
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
