@@ -1,24 +1,39 @@
-import Login from "./pages/Login";
-import HeaderBar from "./components/HeaderBar";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import HeaderBar from "./components/HeaderBar";
+import Login from "./pages/Login";
 import MillerApp from "./pages/MillerApp";
-import UseEstado from "./context/UseEstado";
+import MySideNav from "./components/SideNav";
+import { useContext } from "react";
+import Context from "./context/Context";
 
 function App() {
+  const { usuario } = useContext(Context);
 
   return (
-    <UseEstado>
-      <div className="App">
-        <HeaderBar />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/app" element={<MillerApp />} />
-            <Route path="*" element={<Login />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
-    </UseEstado>
+    <BrowserRouter>
+      <Container className="App" fluid="xs">
+        <Row>
+          <Col xs={0}>{usuario === "" ? <></> : <MySideNav />}</Col>
+          <Col xs={12}>
+            <Row>
+              <HeaderBar />
+            </Row>
+            <Row>
+              <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/app" element={<MillerApp />} />
+                <Route path="*" element={<Login />} />
+              </Routes>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+    </BrowserRouter>
   );
 }
 

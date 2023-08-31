@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { GET_PRESUPUESTOS,SET_ID_PROYECTO } from "./types";
+import { GET_PRESUPUESTOS,SET_ID_PROYECTO,SET_ID_USUARIO } from "./types";
 
 export default (state, action) => {
   const { payload, type } = action;
@@ -14,7 +14,12 @@ export default (state, action) => {
         ...state,
         id_proyecto: payload,
       };
-    default:
+      case SET_ID_USUARIO:
+        return {
+          ...state,
+          usuario: payload,
+        };
+      default:
       return { state };
   }
 };

@@ -14,7 +14,8 @@ import '../css/style.css'
 function Login() {
 
   
-  const {get_presupuesto } = useContext(Context);
+  const {get_presupuesto, set_usuario } = useContext(Context);
+
   const navegate = useNavigate() 
 
   async function loadData() {
@@ -25,6 +26,7 @@ function Login() {
   function handleSubmit(e) {
     e.preventDefault();
     loadData();
+    set_usuario('valido')
     navegate('/app')
   }
 

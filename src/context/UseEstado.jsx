@@ -3,7 +3,7 @@ import Context from "./Context";
 import { useReducer } from "react";
 import Reducer from "./Reducer";
 import axios from "axios";
-import { GET_PRESUPUESTOS,SET_ID_PROYECTO } from "./types";
+import { GET_PRESUPUESTOS,SET_ID_PROYECTO,SET_ID_USUARIO } from "./types";
 
 
 function UseEstado(props) {
@@ -12,7 +12,8 @@ function UseEstado(props) {
   // Defino el estado inicial
   const estadoInicial = {
     tb_presupuesto: [],
-    id_proyecto: ""
+    id_proyecto: "",
+    usuario : ""
   };
 
     //seteo mi reducer
@@ -51,6 +52,13 @@ function UseEstado(props) {
     });
   }
 
+  //funxion para fijar el id proyecto
+  const set_usuario = (id) =>{
+    dispatch({
+      type: SET_ID_USUARIO,
+      payload: id
+    });
+  }
 
   //cargo mi Context   
   return (
@@ -58,8 +66,10 @@ function UseEstado(props) {
       value={{
         tb_presupuesto: state.tb_presupuesto,
         id_proyecto: state.id_proyecto,
+        usuario:state.usuario,
         get_presupuesto,
-        set_Id_proyecto
+        set_Id_proyecto,
+        set_usuario
       }}
     >
       {props.children}

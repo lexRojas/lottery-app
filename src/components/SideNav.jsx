@@ -10,10 +10,16 @@ import SideNav, {
 } from "@trendmicro/react-sidenav";
 
 import "@trendmicro/react-sidenav/dist/react-sidenav.css";
+
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+
+import Context from '../context/Context'
+
 
 function MySideNav() {
   const navegate = useNavigate();
+  const {set_usuario} = useContext(Context)
 
   return (
     <React.Fragment>
@@ -21,6 +27,7 @@ function MySideNav() {
         onSelect={(selected) => {
           switch (selected) {
             case "exit":
+              set_usuario("")
               navegate("/");
 
               break;
