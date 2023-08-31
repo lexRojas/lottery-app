@@ -2,8 +2,8 @@ import React from "react";
 import "../css/style.css";
 
 import SideNav, {
-  Toggle,
-  Nav,
+  //Toggle,
+  //Nav,
   NavItem,
   NavIcon,
   NavText,

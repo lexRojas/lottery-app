@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -11,12 +11,9 @@ function ProyectoSelector() {
   const { get_presupuesto, tb_presupuesto } = useContext(Context);
   const { register } = useForm();
 
-  async function loadData() {
-    await get_presupuesto();
-  }
-
   useEffect(() => {
-    loadData();
+    get_presupuesto();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 
