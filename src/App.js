@@ -23,7 +23,7 @@ function App() {
             <Row>
               <HeaderBar />
             </Row>
-            <Row>
+            <Row >
               <Routes>
                 <Route path="/" element={<Login />} />
                 <Route path="/app" element={<MillerApp />} />

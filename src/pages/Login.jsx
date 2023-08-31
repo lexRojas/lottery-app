@@ -31,7 +31,7 @@ function Login() {
   }
 
   return (
-    <Container fluid="-2 solid fondo">
+    <Container className="h-100 d-inline-block"  fluid="-2 solid fondo">
       <Row className="p-1 justify-content-center">
         <Col className="col-sm-3">
           <Card >
