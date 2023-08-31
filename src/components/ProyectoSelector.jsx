@@ -18,7 +18,7 @@ function ProyectoSelector() {
 
 
   return (
-    <Container className="vertical-center" fluid="md">
+    <Container className="vertical-center" fluid="lg">
       <Row className="justify-content-center">
         <Col xs={5} className="bordes">
           <Form >
