@@ -18,13 +18,13 @@ function ProyectoSelector() {
 
 
   return (
-    <Container className="vertical-center" fluid="lg">
-      <Row className="justify-content-center">
-        <Col xs={5} className="bordes">
+    <Container  >
+      <Row className=" m-10 justify-content-center">
+        <Col md={5} className="bordes">
           <Form >
             <Form.Group className="m-3" controlId="frmFiltro">
               <Row>
-                <Col xs={9}>
+                <Col md={9}>
                   <Form.Label>Filtro de Busqueda de proyecto </Form.Label>
                   <Form.Control
                     type="text"
@@ -32,7 +32,7 @@ function ProyectoSelector() {
                     {...register("filtro")}
                   />
                 </Col >
-                <Col xs={3} className="d-flex flex-row-reverse align-items-end" >
+                <Col md={3} className="d-flex flex-row-reverse align-items-end" >
                   <Button> Filtrar </Button>
                 </Col>
               </Row>
