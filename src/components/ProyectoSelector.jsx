@@ -9,7 +9,15 @@ import { Button } from "react-bootstrap";
 
 function ProyectoSelector() {
   const { get_presupuesto, tb_presupuesto } = useContext(Context);
-  const { register } = useForm();
+  const { register,handleSubmit } = useForm();
+
+
+  const onSubmit=  handleSubmit(data =>{
+      const {filtro} = data
+      get_presupuesto(filtro);
+      console.log('filtrando')
+      console.log(filtro)
+  })
 
   useEffect(() => {
     get_presupuesto();
@@ -21,7 +29,7 @@ function ProyectoSelector() {
     <Container>
       <Row className="contenedor">
         <Col lg={5} xs={10} className="bordes">
-          <Form >
+          <Form  onSubmit={onSubmit}>
             <Form.Group className="m-3" controlId="frmFiltro">
               <Row>
                 <Col lg={9}>
@@ -33,7 +41,7 @@ function ProyectoSelector() {
                   />
                 </Col >
                 <Col lg={3} className="d-flex flex-row-reverse align-items-end" >
-                  <Button className="mt-2"> Filtrar </Button>
+                  <Button type="submit" className="mt-2"> Filtrar </Button>
                 </Col>
               </Row>
             </Form.Group>

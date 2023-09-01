@@ -25,7 +25,7 @@ function UseEstado(props) {
   const get_presupuesto = async (value='') => {
     let array=[]
     await axios
-      .get(`${baseURL}/tb_presupuesto` ) //{params:{filtro:value}}
+      .get(`${baseURL}/tb_presupuesto`, {params:{filtro:value}})
       .then(function (response) {
         array=response.data
         dispatch({
