@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 
 import Context from '../context/Context'
+import { Container } from "react-bootstrap";
 
 
 function MySideNav() {
@@ -22,7 +23,7 @@ function MySideNav() {
   const {set_usuario} = useContext(Context)
 
   return (
-    <React.Fragment>
+    <Container className="barraLateral">
       <SideNav
         onSelect={(selected) => {
           switch (selected) {
@@ -38,7 +39,7 @@ function MySideNav() {
         }}
         id="sdb"
       >
-        <SideNav.Toggle />
+        <SideNav.Toggle  />
         <SideNav.Nav className="barraLateral" defaultSelected="proyectos">
 
           <NavItem id="proyectos" eventKey="presupuestos">
@@ -104,7 +105,7 @@ function MySideNav() {
           </NavItem>
         </SideNav.Nav>
       </SideNav>
-    </React.Fragment>
+    </Container>
   );
 }
 

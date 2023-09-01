@@ -1,14 +1,15 @@
 import React from "react";
 import '../css/style.css'
 import miller from '../assets/miller.png'
+import { Container } from "react-bootstrap";
 
 
 function HeaderBar() {
     return (
-      <div className="barra">
-        <img src={miller} alt="M" width={30} height={30} />
+      <Container >
+        <img  className="m-2" src={miller} alt="M" width={35} height={35} />
         <span> Miller Constructora 2023</span>
-      </div>
+      </Container>
     );
   }
 

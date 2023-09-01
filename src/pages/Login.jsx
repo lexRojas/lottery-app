@@ -27,40 +27,38 @@ function Login() {
     e.preventDefault();
     loadData();
     set_usuario('valido')
-    navegate('/app')
+    navegate('/proyectos')
   }
 
   return (
-    <Container className="h-100 d-inline-block"  fluid="-2 solid fondo">
-      <Row className="p-1 justify-content-center">
-        <Col className="col-sm-3">
+    <Container fluid>
+      <Row >
+        <Col className="col-lg-5">
           <Card >
             <Card.Body>
               <Card.Title>Sistema de Control de Horas</Card.Title>
                <Card.Text>
                 <Form>
                   <Form.Group
-                    className="mb-3"
-                    controlId="exampleForm.ControlInput1"
+                     controlId="exampleForm.ControlInput1"
                   >
-                    <Form.Label>Email address</Form.Label>
+                    <Form.Label>Correo Electrónico</Form.Label>
                     <Form.Control type="email" placeholder="name@example.com" />
                   </Form.Group>
                   <Form.Group
-                    className="mb-3"
                     controlId="exampleForm.ControlTextarea1"
                   >
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label>Clave de Acceso</Form.Label>
                     <Form.Control type="password" />
                   </Form.Group>
                   
-                    <Row className="p-1 justify-content-center">
-                      <Col>
+                    <Row className="d-flex">
+                      <Col className="d-flex p-2">
                         <Button variant="primary" type="submit" onClick={handleSubmit}>
                           Ingresar
                         </Button>
                       </Col>
-                      <Col>
+                      <Col className="d-flex p-2">
                         <Button variant="primary" type="submit" onClick={handleSubmit}>
                           Cancelar
                         </Button>
