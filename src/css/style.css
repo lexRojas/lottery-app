@@ -1,20 +1,38 @@
+body html {
+
+  margin: 0px;
+  height: 100vh;
+  width: 100vh;
+
+}
+
+
 .barra {
   background-color: #13305f;
   color: white;
-  display: flex;
+  display: block;
   justify-content: center;
   flex-direction: row;
   padding-bottom: 0px;
   margin-bottom: 1rem;
   text-align: center;
-  align-items: baseline;
+  align-items: center;
   font-style: Georgia;
   font-size: 1.5rem;
 }
 .fondo {
-  background-color: #1b3f79;
+  background-color: #647591;  
+  height: 100vh;
+  display: block;
+  align-items: center;
+  justify-items: center;
 }
 
+.fondo-windows{
+  background-color:  white;
+  
+  
+}
 /* estilo barra lateral */
 
 .barraLateral {

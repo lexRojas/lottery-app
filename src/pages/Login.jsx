@@ -31,10 +31,10 @@ function Login() {
   }
 
   return (
-    <Container fluid>
+    <Container className="col-lg-5">
       <Row >
-        <Col className="col-lg-5">
-          <Card >
+        <Col >
+          <Card className="fondo-windows">
             <Card.Body>
               <Card.Title>Sistema de Control de Horas</Card.Title>
                <Card.Text>

@@ -11,12 +11,12 @@ import Proyectos from "./pages/Proyectos";
 function App() {
   return (
     <BrowserRouter>
-      <Container fluid>
+      <Container fluid className="fondo">
         <Row className="barra">
           <HeaderBar />
         </Row>
         <Row>
-        <Container fluid>
+        <Container fluid className="fondo">
               <Routes>
                 <Route path="/" element={<Login />} />
                 <Route path="/proyectos" element={<Proyectos/>} />

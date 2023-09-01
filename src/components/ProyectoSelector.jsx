@@ -28,8 +28,8 @@ function ProyectoSelector() {
   return (
     <Container>
       <Row className="contenedor">
-        <Col lg={5} xs={10} className="bordes">
-          <Form  onSubmit={onSubmit}>
+        <Col lg={5} xs={10} className="bordes fondo-windows">
+          <Form   onSubmit={onSubmit}>
             <Form.Group className="m-3" controlId="frmFiltro">
               <Row>
                 <Col lg={9}>
