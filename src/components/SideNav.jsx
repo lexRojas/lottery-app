@@ -1,6 +1,4 @@
 import React from "react";
-import "../css/style.css";
-
 import SideNav, {
   //Toggle,
   //Nav,
@@ -14,23 +12,25 @@ import "@trendmicro/react-sidenav/dist/react-sidenav.css";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 
-import Context from '../context/Context'
+import Context from "../context/Context";
 import { Container } from "react-bootstrap";
-
 
 function MySideNav() {
   const navegate = useNavigate();
-  const {set_usuario} = useContext(Context)
+  const { set_usuario } = useContext(Context);
 
   return (
     <Container className="barraLateral">
-      <SideNav
+      <SideNav 
         onSelect={(selected) => {
           switch (selected) {
             case "exit":
-              set_usuario("")
+              set_usuario("");
               navegate("/");
 
+              break;
+            case "presupuestos":
+              navegate("/proyectos");
               break;
 
             default:
@@ -39,15 +39,14 @@ function MySideNav() {
         }}
         id="sdb"
       >
-        <SideNav.Toggle  />
+        <SideNav.Toggle />
         <SideNav.Nav className="barraLateral" defaultSelected="proyectos">
-
           <NavItem id="proyectos" eventKey="presupuestos">
             <NavIcon>
               {" "}
               <i className="fa fa-home" style={{ fontSize: "1.75em" }} />
             </NavIcon>
-            <NavText>Procesos</NavText>
+            <NavText>Proyectos</NavText>
           </NavItem>
 
           <NavItem id="procesos" eventKey="procesos">

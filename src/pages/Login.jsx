@@ -1,77 +1,67 @@
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
-import {useContext} from 'react'
-import Context from '../context/Context'
+import { useContext } from "react";
+import Context from "../context/Context";
 
-import '../css/style.css'
-
+import "../css/style.css";
 
 function Login() {
+  const { get_presupuesto, set_usuario } = useContext(Context);
 
-  
-  const {get_presupuesto, set_usuario } = useContext(Context);
-
-  const navegate = useNavigate() 
+  const navegate = useNavigate();
 
   async function loadData() {
     await get_presupuesto();
   }
 
-
   function handleSubmit(e) {
     e.preventDefault();
     loadData();
-    set_usuario('valido')
-    navegate('/proyectos')
+    set_usuario("valido");
+    navegate("/app");
   }
 
   return (
-    <Container className="col-lg-5">
-      <Row >
-        <Col >
-          <Card className="fondo-windows">
-            <Card.Body>
-              <Card.Title>Sistema de Control de Horas</Card.Title>
-               <Card.Text>
-                <Form>
-                  <Form.Group
-                     controlId="exampleForm.ControlInput1"
+    <div className="container col-lg-5 fondo-windows rounded">
+      <div className="row">
+        <div className="col ">
+          <div className="row">
+            <p>Sistema de Control de Horas</p>
+          </div>
+          <div className="row">
+            <form className="form">
+              <div className="exampleForm.ControlInput1">
+                <label className="form-label"> Correo Electrónico</label>
+                <input className="form-control" type="email" placeholder="name@example.com" />
+              </div>
+              <div className="exampleForm.ControlTextarea1">
+                <label className="form-label">Clave de Acceso</label>
+                <input className="form-control" type="password" />
+              </div>
+              <div className="row p-2 ">
+                <div className="col d-flex justify-content-center">
+                  <button
+                    className="btn btn-primary"
+                    type="submit"
+                    onClick={handleSubmit}
                   >
-                    <Form.Label>Correo Electrónico</Form.Label>
-                    <Form.Control type="email" placeholder="name@example.com" />
-                  </Form.Group>
-                  <Form.Group
-                    controlId="exampleForm.ControlTextarea1"
+                    Ingresar
+                  </button>
+                </div>
+                <div className="col d-flex justify-content-center">
+                  <button
+                    className="btn btn-primary"
+                    type="submit"
+                    onClick={handleSubmit}
                   >
-                    <Form.Label>Clave de Acceso</Form.Label>
-                    <Form.Control type="password" />
-                  </Form.Group>
-                  
-                    <Row className="d-flex">
-                      <Col className="d-flex p-2">
-                        <Button variant="primary" type="submit" onClick={handleSubmit}>
-                          Ingresar
-                        </Button>
-                      </Col>
-                      <Col className="d-flex p-2">
-                        <Button variant="primary" type="submit" onClick={handleSubmit}>
-                          Cancelar
-                        </Button>
-                      </Col>
-                    </Row>
-                  
-                </Form> 
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+                    Cancelar
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

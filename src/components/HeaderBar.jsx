@@ -1,17 +1,22 @@
-import React from "react";
-import '../css/style.css'
-import miller from '../assets/miller.png'
-import { Container } from "react-bootstrap";
+import React, { useContext } from "react";
+import "../css/style.css";
 
+import miller from "../assets/miller.png";
+
+import Context from "../context/Context";
 
 function HeaderBar() {
-    return (
-      <Container >
-        <img  className="m-2" src={miller} alt="M" width={35} height={35} />
-        <span> Miller Constructora 2023</span>
-      </Container>
-    );
-  }
+  const { desc_proyecto } = useContext(Context);
 
+  return (
+      <div className="row">
+        <div className="col ">
+          <img className="m-2 d-inline justify-content-center"  src={miller} alt="M" width={35} height={35} />
+          <span className="d-inline justify-content-center"> Miller Constructora 2023</span>
+          <span className="m-2 lead d-inline justify-content-end"> {desc_proyecto} </span>
+        </div>
+      </div>
+  );
+}
 
 export default HeaderBar;

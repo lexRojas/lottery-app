@@ -12,7 +12,8 @@ export default (state, action) => {
     case SET_ID_PROYECTO:
       return {
         ...state,
-        id_proyecto: payload,
+        id_proyecto: payload.id,
+        desc_proyecto: payload.descripcion
       };
       case SET_ID_USUARIO:
         return {

@@ -3,16 +3,20 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 // Importing the Bootstrap CSS
+import "./css/style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import UseEstado from "./context/UseEstado";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <UseEstado>
-      <App />
-    </UseEstado>
+    <div>
+      <UseEstado>
+        <App />
+      </UseEstado>
+    </div>
   </React.StrictMode>
 );
 

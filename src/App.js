@@ -1,34 +1,29 @@
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+/*Componentes */
 
 import HeaderBar from "./components/HeaderBar";
 import Login from "./pages/Login";
 import Proyectos from "./pages/Proyectos";
+import MySideNav from "./components/SideNav";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Container fluid className="fondo">
-        <Row className="barra">
+    <div className="Container barra">
+      <BrowserRouter>
+        <div className="row ">
           <HeaderBar />
-        </Row>
-        <Row>
-        <Container fluid className="fondo">
-              <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/proyectos" element={<Proyectos/>} />
-
-
-
-                <Route path="*" element={<Login />} />
-              </Routes>
-          </Container>
-        </Row>
-      </Container>
-    </BrowserRouter>
+        </div>
+        <div className="d-flex row fondo">
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/app" element={<MySideNav />} />
+            <Route path="/proyectos" element={<Proyectos />} />
+            <Route path="*" element={<Login />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </div>
   );
 }
 

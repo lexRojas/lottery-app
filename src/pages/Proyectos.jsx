@@ -4,14 +4,16 @@ import MySideNav from "../components/SideNav.jsx";
 
 function Proyectos() {
   return (
-    <>
-      <div className="barraLateral">
-        <MySideNav />
+    <div className="container">
+      <div className="row">
+        <div className="col-md-1">
+          <MySideNav />
+        </div>
+        <div className="col-md-11">
+          <ProyectoSelector />
+        </div>
       </div>
-      <div className="contenedor">
-      <ProyectoSelector />
-       </div>
-    </>
+    </div>
   );
 }
 export default Proyectos;

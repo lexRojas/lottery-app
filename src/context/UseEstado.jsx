@@ -4,17 +4,10 @@ import { useReducer } from "react";
 import Reducer from "./Reducer";
 import axios from "axios";
 import { GET_PRESUPUESTOS,SET_ID_PROYECTO,SET_ID_USUARIO } from "./types";
-
+import { estadoInicial } from "./Context";
 
 function UseEstado(props) {
   const baseURL = "https://psql-backend-a5691387ba13.herokuapp.com";
-
-  // Defino el estado inicial
-  const estadoInicial = {
-    tb_presupuesto: [],
-    id_proyecto: "",
-    usuario : ""
-  };
 
     //seteo mi reducer
   const [state, dispatch] = useReducer(Reducer, estadoInicial);
@@ -45,10 +38,10 @@ function UseEstado(props) {
 
   
   //funxion para fijar el id proyecto
-  const set_Id_proyecto = (id) =>{
+  const set_Id_proyecto = (id, descripcion) =>{
     dispatch({
       type: SET_ID_PROYECTO,
-      payload: id
+      payload: {id,descripcion}
     });
   }
 
@@ -66,6 +59,7 @@ function UseEstado(props) {
       value={{
         tb_presupuesto: state.tb_presupuesto,
         id_proyecto: state.id_proyecto,
+        desc_proyecto: state.desc_proyecto,
         usuario:state.usuario,
         get_presupuesto,
         set_Id_proyecto,
