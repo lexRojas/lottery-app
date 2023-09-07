@@ -26,9 +26,10 @@ function ProyectoSelector() {
       }
   });
 
-  const filtrar_datos = () => {
+  const filtrar_datos = (e) => {
     let filtro = watch("filtro");
     get_presupuesto(filtro);
+    e.preventDefault();
   };
 
   useEffect(() => {
@@ -86,7 +87,7 @@ function ProyectoSelector() {
                 SELECCIONAR PROYECTO
               </button>
             </div>
-            <ModalDialog isOpen={isOpen} closeModal={closeModal}  titulo="Sistema Horas Miller" mensaje="Debes seleccionar algo" />
+            <ModalDialog isOpen={isOpen} closeModal={closeModal}  titulo="Sistema Horas Miller" mensaje="Debes seleccionar un proyecto de la lista" />
           </div>
         </Form.Group>
       </Form>
