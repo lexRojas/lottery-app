@@ -1,15 +1,15 @@
-import React, { useRef, useContext } from "react";
+import React, { useRef } from "react";
 import { Button } from "primereact/button";
 import { TieredMenu } from "primereact/tieredmenu";
 import { useNavigate } from "react-router-dom";
-import Context from "../context/Context";
+//import Context from "../context/Context";
 
 import miller from "../assets/miller.png";
 
 export default function MainMenu() {
   const menu = useRef(null);
   const navegate = useNavigate();
-  const { desc_proyecto, id_proyecto } = useContext(Context);
+  //const { desc_proyecto, id_proyecto } = useContext(Context);
 
   const items = [
     {
