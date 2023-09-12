@@ -1,17 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 import Context from "../context/Context";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { Dropdown } from "primereact/dropdown";
 import { InputText } from "primereact/inputtext";
 import { Divider } from "primereact/divider";
 import { Button } from "primereact/button";
 
 function ProyectoSelector() {
-  const { get_presupuesto, tb_presupuesto, set_Id_proyecto } =
+  //const { get_presupuesto, tb_presupuesto, set_Id_proyecto } =
     useContext(Context);
-  const { register, handleSubmit, watch } = useForm();
-  const navegate = useNavigate();
+  // const { register, handleSubmit, watch } = useForm();
+  // const navegate = useNavigate();
   //const [isOpen,openModal,closeModal] = useModal(false)
 
   const [selectedCity, setSelectedCity] = useState(null);
@@ -30,14 +29,10 @@ function ProyectoSelector() {
     // }
   };
 
-  const filtrar_datos = (e) => {
-    let filtro = watch("filtro");
-    get_presupuesto(filtro);
-    e.preventDefault();
-  };
+
 
   useEffect(() => {
-    get_presupuesto();
+    //get_presupuesto();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -66,7 +61,7 @@ function ProyectoSelector() {
           id="cmdFiltro"
           value={selectedCity}
           onChange={(e) => setSelectedCity(e.value)}
-          options={tb_presupuesto}
+          //options={tb_presupuesto}
           optionLabel="proyecto"
           placeholder="Selecciones un presupuesto"
           className="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
