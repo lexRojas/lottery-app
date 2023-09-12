@@ -1,0 +1,59 @@
+html {
+  font-size: 12px;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: normal;
+  background: var(--surface-ground);
+  color: var(--text-color);
+  padding: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.card {
+  background: var(--surface-card);
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.menu-barra {
+  background-color: rgb(31, 61, 117);
+  border-radius: 6px;
+  padding: 0px;
+  margin: 2px;
+  align-items: center;
+}
+
+.menu-titulo {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal 16px / normal Arial rgb(255, 255, 255), Gadget, sans-serif;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  margin: 5px;
+}
+
+.menu-subtitulo {
+  
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: none;
+    font: normal 12px / normal Arial rgb(255, 235, 213), Gadget, sans-serif;
+    text-align: center;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    margin: 5px;
+}
+
+
+.menu-botton {
+  width: 100px;
+}

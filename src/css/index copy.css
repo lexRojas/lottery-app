@@ -1,11 +1,29 @@
 body html {
-
   margin: 0px;
   height: 100vh;
   width: 100vh;
-
 }
 
+html {
+  font-size: 12px;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: normal;
+  background: var(--surface-ground);
+  color: var(--text-color);
+  padding: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.card {
+  background: var(--surface-card);
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
 
 .barra {
   background-color: #13305f;
@@ -30,7 +48,7 @@ body html {
 
 .fondo-windows{
   background-color:  white;
-  
+  color:black;
   
 }
 /* estilo barra lateral */
@@ -71,3 +89,7 @@ body html {
   border-radius: 10px;
 }
 
+.bordes-div{
+  border: 0.5px solid rgba(92, 92, 92, 0.466);
+  
+}

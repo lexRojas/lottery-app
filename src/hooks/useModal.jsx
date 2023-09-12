@@ -7,8 +7,6 @@ export const useModal = (valorInicial =false)=> {
 
     const openModal = () => setIsOpen(true)
     const closeModal = () => setIsOpen(false)
-     
 
-    console.log(isOpen)
     return [isOpen,openModal,closeModal]
 }

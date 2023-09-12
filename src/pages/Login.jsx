@@ -1,68 +1,55 @@
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Context from "../context/Context";
+import { Button } from "primereact/button";
+import { InputText } from "primereact/inputtext";
+import { Password } from "primereact/password";
+import { Divider } from "primereact/divider";
 
-import "../css/style.css";
-
-function Login() {
-  const { get_presupuesto, set_usuario } = useContext(Context);
-
+export default function Login() {
+  const [value, setValue] = useState("");
+  const {set_usuario} = useContext(Context);
   const navegate = useNavigate();
 
-  async function loadData() {
-    await get_presupuesto();
-  }
 
-  function handleSubmit(e) {
+  function clickHandleIngresar(e) {
     e.preventDefault();
-    loadData();
     set_usuario("valido");
     navegate("/app");
   }
 
   return (
-    <div className="container col-lg-5 fondo-windows rounded">
-      <div className="row">
-        <div className="col ">
-          <div className="row">
-            <p>Sistema de Control de Horas</p>
-          </div>
-          <div className="row">
-            <form className="form">
-              <div className="exampleForm.ControlInput1">
-                <label className="form-label"> Correo Electrónico</label>
-                <input className="form-control" type="email" placeholder="name@example.com" />
-              </div>
-              <div className="exampleForm.ControlTextarea1">
-                <label className="form-label">Clave de Acceso</label>
-                <input className="form-control" type="password" />
-              </div>
-              <div className="row p-2 ">
-                <div className="col d-flex justify-content-center">
-                  <button
-                    className="btn btn-primary"
-                    type="submit"
-                    onClick={handleSubmit}
-                  >
-                    Ingresar
-                  </button>
-                </div>
-                <div className="col d-flex justify-content-center">
-                  <button
-                    className="btn btn-primary"
-                    type="submit"
-                    onClick={handleSubmit}
-                  >
-                    Cancelar
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+    <div className="card md:col-5">
+      <div className="col  ">
+        <p className="text-center text-xl font-bold ">
+          Sistema de Control de Horas
+        </p>
+      </div>
+
+      <div className="flex flex-column gap-2">
+        <label htmlFor="username">Correo Electrónico</label>
+        <InputText id="username" aria-describedby="username-help" />
+        <small id="username-help">
+          Digite su correo electrónico registrado en el sistema.
+        </small>
+      </div>
+
+      <div className="flex flex-column pt-3 gap-2 ">
+        <label htmlFor="clave">Clave de Acceso</label>
+        <Password
+          id="clave"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          toggleMask
+          className="" />{" "}
+      </div>
+      <Divider />
+      <div className="flex flex-row flex-wrap  items-align-center justify-content-center pt-3 gap-2 ">
+        <Button label="Ingresar"
+          icon="pi pi-check"
+          onClick={clickHandleIngresar} />
+        <Button label="Salir" icon="pi pi-power-off" />
       </div>
     </div>
   );
 }
-
-export default Login;

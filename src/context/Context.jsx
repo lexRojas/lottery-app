@@ -5,9 +5,11 @@ export    const estadoInicial = {
   tb_presupuesto: [],
   id_proyecto: "",
   desc_proyecto: "",
-  usuario : ""
+  usuario : "",
+  baseURL: "",
+  id_sector:""
 };
 
-const MiContext = createContext( estadoInicial)
+const Context = createContext( estadoInicial)
 
-export default MiContext
+export default Context
