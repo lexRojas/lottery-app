@@ -1,19 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
 import { InputNumber } from "primereact/inputnumber";
 import {Calendar} from "primereact/calendar"
+import Context from "../context/Context";
 
 function FormBoleta() {
+
+  const {elemento} = useContext(Context)
+
+  
+
   const [descripcion, setDescripcion] = useState("");
   const [value, setValue] = useState("");
   const [medida, setMedida] = useState(0);
-  const [unidad_medida, setUnidadMedida] = useState("");
+  const [um, setUM] = useState("");
   const [hora_inicio, setHora_Inicio] = useState("")
   const [hora_final, setHora_Final] = useState("17:00")
 
+  useEffect(() => {
+
+    const {unidad_medida} = elemento
+    setUM(unidad_medida)
+  
+  }, [elemento])
+  
+
+
+
   return (
-    <div className="card" id="formulario_boleta">
+    <div className="card col" id="formulario_boleta">
       <div className="flex flex-column gap-1 pb-2">
         <label htmlFor="planos">Ubicación en Planos</label>
         <InputText
@@ -50,8 +66,8 @@ function FormBoleta() {
           <InputText
             id="panos"
             aria-describedby="planos-help"
-            value={unidad_medida}
-            onChange={(e) => setUnidadMedida(e.value)}
+            value={um}
+            onChange={(e) => setUM(e.value)}
             disabled
           />
         </div>

@@ -14,7 +14,7 @@ function BoletaAsignacion() {
         <div className="col"><ComboSectores />  </div>
       </div>
 
-      <div className="flex flex-row flex-wrap ">
+      <div className="flex flex-column  md:flex-row flex-wrap ">
         <div className="col"> <PrimeTable/> </div>
         <div className="col"  ><FormBoleta/></div>
       </div>

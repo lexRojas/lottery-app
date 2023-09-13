@@ -5,9 +5,17 @@ import { useState } from "react";
 import { Dropdown } from "primereact/dropdown";
 
 export default function ComboSectores() {
-  const { baseURL, id_proyecto } = useContext(Context);
+  const { baseURL, id_proyecto,set_id_sectores } = useContext(Context);
   const [Sectores, setSectores] = useState([]);
   const [selectedSector, setselectedSector] = useState(null);
+
+
+  // fijo el sector en el contexto 
+  const fijarSectorID = (valor) =>{
+    const {codigo_sector} = valor
+    set_id_sectores(codigo_sector)
+    setselectedSector(valor)
+  }
 
   const get_sectores = async (presupuesto = "") => {
     await axios
@@ -29,7 +37,6 @@ export default function ComboSectores() {
       });
   };
   useEffect(() => {
-    console.log(id_proyecto);
     get_sectores(id_proyecto);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -45,7 +52,7 @@ export default function ComboSectores() {
         <Dropdown
           id="cmdFiltro"
           value={selectedSector}
-          onChange={(e) => setselectedSector(e.value)}
+          onChange={(e) => fijarSectorID(e.value)}
           options={Sectores}
           optionLabel="descripcion"
           placeholder="Seleccione un sector"

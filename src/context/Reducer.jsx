@@ -5,6 +5,7 @@ import {
   SET_ID_PROYECTO,
   SET_ID_SECTORES,
   SET_ID_USUARIO,
+  SET_ELEMENTO,
 } from "./types";
 
 export default (state, action) => {
@@ -34,9 +35,14 @@ export default (state, action) => {
     case SET_ID_SECTORES:
       return {
         ...state,
-        id_sectores: payload,
+        id_sector: payload,
       };
-    default:
+      case SET_ELEMENTO:
+        return {
+          ...state,
+          elemento: payload,
+        };
+      default:
       return { state };
   }
 };

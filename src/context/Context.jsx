@@ -7,7 +7,8 @@ export    const estadoInicial = {
   desc_proyecto: "",
   usuario : "",
   baseURL: "",
-  id_sector:""
+  id_sector:"",
+  elemento: [],
 };
 
 const Context = createContext( estadoInicial)

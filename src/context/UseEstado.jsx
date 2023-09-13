@@ -8,6 +8,7 @@ import {
   SET_ID_PROYECTO,
   SET_ID_USUARIO,
   SET_ID_SECTORES,
+  SET_ELEMENTO,
 } from "./types";
 import { estadoInicial } from "./Context";
 
@@ -64,9 +65,19 @@ function UseEstado(props) {
   const set_id_sectores = (id) => {
     dispatch({
       type: SET_ID_SECTORES,
-      id_sector: id,
+      payload: id,
     });
   };
+
+  //fijo el elemento del presupuesto 
+  const set_elemento = (elemento) => {
+    dispatch({
+      type: SET_ELEMENTO,
+      payload: elemento,
+    });
+  }
+
+
   //cargo mi Context
   return (
     <Context.Provider
@@ -77,10 +88,12 @@ function UseEstado(props) {
         usuario: state.usuario,
         baseURL: state.baseURL,
         id_sector: state.id_sector,
+        elemento: state.elemento,
         get_presupuesto,
         set_Id_proyecto,
         set_usuario,
-        set_id_sectores
+        set_id_sectores,
+        set_elemento
       }}
     >
       {props.children}
