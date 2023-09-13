@@ -1,15 +1,84 @@
-import React from "react";
+import React, { useState } from "react";
 import { InputText } from "primereact/inputtext";
+import { InputTextarea } from "primereact/inputtextarea";
+import { InputNumber } from "primereact/inputnumber";
+import {Calendar} from "primereact/calendar"
 
 function FormBoleta() {
+  const [descripcion, setDescripcion] = useState("");
+  const [value, setValue] = useState("");
+  const [medida, setMedida] = useState(0);
+  const [unidad_medida, setUnidadMedida] = useState("");
+  const [hora_inicio, setHora_Inicio] = useState("")
+  const [hora_final, setHora_Final] = useState("17:00")
+
   return (
-    <div className="card">
-      <div className="flex flex-column gap-2">
-        <label htmlFor="username">Username</label>
-        <InputText id="username" aria-describedby="username-help" />
-        <small id="username-help">
-          Enter your username to reset your password.
+    <div className="card" id="formulario_boleta">
+      <div className="flex flex-column gap-1 pb-2">
+        <label htmlFor="planos">Ubicación en Planos</label>
+        <InputText
+          id="panos"
+          aria-describedby="planos-help"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+        <small id="planos-help">
+          Indique la sección del plano donde se realizará la actividad.
         </small>
+      </div>
+
+      <div className="flex flex-column gap-1 pb-2">
+        <label htmlFor="planos">Comentarios</label>
+        <InputTextarea
+          value={descripcion}
+          onChange={(e) => setDescripcion(e.target.value)}
+          rows={5}
+        />
+      </div>
+      <div className="flex flex-row pb-2 gap-3">
+        <div className="flex flex-column gap-2 p-0 col-6">
+          <label htmlFor="planos">Cantidad de medida</label>
+          <InputNumber
+            value={medida}
+            onChange={(e) => setMedida(e.value)}
+            minFractionDigits={2}
+            maxFractionDigits={5}
+          />
+        </div>
+        <div className="flex flex-column gap-2 p-0 col-6">
+          <label htmlFor="planos">Unidad de Medida</label>
+          <InputText
+            id="panos"
+            aria-describedby="planos-help"
+            value={unidad_medida}
+            onChange={(e) => setUnidadMedida(e.value)}
+            disabled
+          />
+        </div>
+      </div>
+      <div className="flex flex-row pb-2 gap-3">
+        <div className="flex flex-column gap-2 p-0 col-6">
+          <label htmlFor="planos">Hora Inicio:</label>
+          <Calendar 
+            id="hora_inicio" 
+            value={hora_inicio} 
+            onChange={(e) => setHora_Inicio(e.target.value)} 
+            timeOnly
+            aria-describedby="hora_help"/>
+          <small>Formato HH:MM </small>
+        </div>
+        <div className="flex flex-column gap-2 p-0 col-6">
+          <label htmlFor="planos">Hora Final</label>
+          <Calendar 
+            id="hora_final" 
+            value={hora_final} 
+            onChange={(e) => setHora_Final(e.target.value)} 
+            timeOnly
+            disabled
+            aria-describedby="hora_help"/>
+          <small>Formato HH:MM </small>
+          
+        </div>
       </div>
     </div>
   );

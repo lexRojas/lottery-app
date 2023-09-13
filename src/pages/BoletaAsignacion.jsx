@@ -8,16 +8,18 @@ function BoletaAsignacion() {
 
 
 	return (
-    <div className="fondo-windows bordes col-md-10 container-fluid">
-      <div className="row g-2">
-        <div className="col-md-8 bordes-div g-2"> <p className="fs-1" >Boleta de Asignación</p> </div>
-        <div className="col-md-4 bordes-div g-2"><ComboSectores />  </div>
+    <div className="card col md:col-10">
+      <div className="flex flex-row flex-wrap ">
+        <div className="col"> <p className="font-bold  text-5xl text-primary" >Boleta de Asignación</p> </div>
+        <div className="col"><ComboSectores />  </div>
       </div>
-      <div className="row g-2">
-        <div className="col-md-6 bordes-div g-2"> <PrimeTable/> </div>
-        <div className="col-md-6 bordes-div g-2"><FormBoleta/></div>
+
+      <div className="flex flex-row flex-wrap ">
+        <div className="col"> <PrimeTable/> </div>
+        <div className="col"  ><FormBoleta/></div>
       </div>
-      <div className="row g-2">
+
+      <div className="flex flex-row flex-wrap ">
         <div className="col-md-5 bordes-div g-2"><h1>7</h1></div>
         <div className="col-md-2 bordes-div g-2">
           <div className="row g-2">

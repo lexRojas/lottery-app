@@ -2,10 +2,12 @@ import React, { useContext, useEffect } from "react";
 import Context from "../context/Context";
 import axios from "axios";
 import { useState } from "react";
+import { Dropdown } from "primereact/dropdown";
 
 export default function ComboSectores() {
   const { baseURL, id_proyecto } = useContext(Context);
   const [Sectores, setSectores] = useState([]);
+  const [selectedSector, setselectedSector] = useState(null);
 
   const get_sectores = async (presupuesto = "") => {
     await axios
@@ -27,28 +29,29 @@ export default function ComboSectores() {
       });
   };
   useEffect(() => {
+    console.log(id_proyecto);
     get_sectores(id_proyecto);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div>
-      <label className="form-label" htmlFor="cmb_selectores"> Seleccione un Sector:</label>
-      <select
-        name=""
-        id="cmb_sectores"
-        className="form-select"
-        aria-label="Default select example"
-      >
-        <option value="#"> Seleccione un sector</option>
-        {Sectores.length > 0 ? (
-          Sectores.map(({ codigo_sector, descripcion }, i) => (
-            <option key={i} value={codigo_sector}>{descripcion}</option>
-          ))
-        ) : (
-          <option value="#"> No existen datos, error!! </option>
-        )}
-      </select>
+      <div className="flex flex-column gap-2" >
+      <label className="text-lg font-bold" htmlFor="cmb_selectores">
+        {" "}
+        Seleccione un Sector:
+      </label>
+
+        <Dropdown
+          id="cmdFiltro"
+          value={selectedSector}
+          onChange={(e) => setselectedSector(e.value)}
+          options={Sectores}
+          optionLabel="descripcion"
+          placeholder="Seleccione un sector"
+          className="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+        />
+      </div>
     </div>
   );
 }

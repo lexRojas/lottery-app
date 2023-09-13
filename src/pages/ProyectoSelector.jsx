@@ -1,42 +1,42 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState,useRef } from "react";
 import Context from "../context/Context";
 import { useNavigate } from "react-router-dom";
 import { Dropdown } from "primereact/dropdown";
 import { InputText } from "primereact/inputtext";
 import { Divider } from "primereact/divider";
 import { Button } from "primereact/button";
+import {Messages} from "primereact/messages"
 
 function ProyectoSelector() {
   const { get_presupuesto, tb_presupuesto, set_Id_proyecto } =
     useContext(Context);
 
-    const [filtro, setfiltro] = useState("")
-
-  // const { register, handleSubmit, watch } = useForm();
+  const [filtro, setfiltro] = useState("");
   const navegate = useNavigate();
-  //const [isOpen,openModal,closeModal] = useModal(false)
-
   const [selectedProyect, setSelectedProyect] = useState(null);
+  const msg = useRef(null)
+
+
 
   const handleClickSelectProyect = () => {
-    const { presupuesto,proyecto } = selectedProyect;
+    
 
     if (selectedProyect === null) {
       set_Id_proyecto("", "");
-      console.log("llamado a openModal");
-      //    openModal();
+      msg.current.show([
+        { severity: 'error', summary: 'Error', detail: 'Debes seleccionar un proyecto', sticky: false, closable: true }
+    ]);
+      
     } else {
-   
-      set_Id_proyecto(proyecto, presupuesto);
+      const { presupuesto, proyecto } = selectedProyect;
+      set_Id_proyecto(presupuesto, proyecto);
       navegate("/App");
     }
   };
 
   const handleClickFilter = () => {
-    get_presupuesto(filtro.toUpperCase())
-
-  }
-
+    get_presupuesto(filtro.toUpperCase());
+  };
 
   useEffect(() => {
     get_presupuesto();
@@ -45,12 +45,10 @@ function ProyectoSelector() {
 
   useEffect(() => {
     // eslint-disable-next-line eqeqeq
-    if (tb_presupuesto.length == 0){
-      setSelectedProyect(null)
+    if (tb_presupuesto.length == 0) {
+      setSelectedProyect(null);
     }
   }, [tb_presupuesto]);
-
-
 
   return (
     <div className="col-12 md:col-5 card">
@@ -61,7 +59,7 @@ function ProyectoSelector() {
             id="txtFiltro"
             label="Filtro de Busquedad"
             aria-describedby="aria-filtro"
-            onChange={(e)=> setfiltro(e.target.value)}
+            onChange={(e) => setfiltro(e.target.value)}
           />
           <small id="aria-filtro">
             {" "}
@@ -69,9 +67,7 @@ function ProyectoSelector() {
           </small>
         </div>
         <div className="flex flex-column gap-2 col md:col-3">
-          <Button 
-            label="Filtrar"
-            onClick={handleClickFilter} />
+          <Button label="Filtrar" onClick={handleClickFilter} />
         </div>
       </div>
       <div className="flex flex-column gap-2 pt-2">
@@ -92,6 +88,12 @@ function ProyectoSelector() {
           label="Seleccionar proyecto"
           onClick={handleClickSelectProyect}
         />
+      </div>
+      <div className="flex flex-row justify-content-center">
+
+        <Messages  ref={msg} />
+
+
       </div>
     </div>
   );

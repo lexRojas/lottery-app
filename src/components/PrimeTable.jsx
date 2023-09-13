@@ -1,6 +1,6 @@
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import { useState } from "react";
+import { useState , useEffect} from "react";
 
 import React from 'react'
 
@@ -186,6 +186,16 @@ function PrimeTable() {
       ];
     
       const [selectedProduct, setSelectedProduct] = useState(null);
+      const [alto_boleta, setAltoBoleta] = useState(200)
+
+
+useEffect(() => {
+
+  setAltoBoleta(document.getElementById('formulario_boleta').clientHeight-48 )
+  
+
+}, [])
+
 
     return (
     
@@ -199,7 +209,7 @@ function PrimeTable() {
                dataKey="cod_ele_sec"
                selection={selectedProduct}
                scrollable 
-               scrollHeight="200px" 
+               scrollHeight={alto_boleta} 
         >
         <Column field="cod_ele_sec" header="Code"></Column>
         <Column field="descripcion" filter filterPlaceholder="Buscar por descripcion"  sortable header="Name"></Column>
