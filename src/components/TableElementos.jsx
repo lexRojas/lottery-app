@@ -6,7 +6,7 @@ import axios from "axios";
 
 import React from "react";
 
-function PrimeTable() {
+function TableElementos() {
   const [datos, setdatos] = useState(null);
   const { baseURL, id_sector, id_proyecto,set_elemento} = useContext(Context);
   const [selectedElemento, setSelectedElemento] = useState(null);
@@ -69,4 +69,4 @@ function PrimeTable() {
   );
 }
 
-export default PrimeTable;
+export default TableElementos;

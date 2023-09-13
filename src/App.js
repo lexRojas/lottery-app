@@ -21,7 +21,7 @@ function App() {
     <div>
       <BrowserRouter>
           <MainMenu />
-        <div className='flex justify-content-center  p-3'>
+        <div className='flex  justify-content-center p-3 md:flex flex-row justify-content-center p-3'>
           <Routes>
             <Route path="/App"  />
             <Route path="/proyectos" element={<ProyectoSelector />} />

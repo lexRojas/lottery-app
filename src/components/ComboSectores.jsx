@@ -43,7 +43,7 @@ export default function ComboSectores() {
 
   return (
     <div>
-      <div className="flex flex-column gap-2" >
+      <div className="grid ml-1 " >
       <label className="text-lg font-bold" htmlFor="cmb_selectores">
         {" "}
         Seleccione un Sector:

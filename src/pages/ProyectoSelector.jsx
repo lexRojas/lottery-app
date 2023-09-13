@@ -6,15 +6,36 @@ import { InputText } from "primereact/inputtext";
 import { Divider } from "primereact/divider";
 import { Button } from "primereact/button";
 import {Messages} from "primereact/messages"
+import axios from "axios";
+
 
 function ProyectoSelector() {
-  const { get_presupuesto, tb_presupuesto, set_Id_proyecto } =
+  const { baseURL, set_Id_proyecto } =
     useContext(Context);
 
   const [filtro, setfiltro] = useState("");
   const navegate = useNavigate();
   const [selectedProyect, setSelectedProyect] = useState(null);
   const msg = useRef(null)
+
+  const [tb_presupuesto, setTb_presupuesto] = useState([])
+
+
+  const get_presupuesto = async (value = "") => {
+    
+    await axios
+      .get(`${baseURL}/tb_presupuesto`, { params: { filtro: value } })
+      .then(function (response) {
+        setTb_presupuesto(response.data);
+      })
+      .catch(function (error) {
+        setTb_presupuesto([])
+        console.log("Error en Fetch Get Presupuesto");
+        console.log(error);
+  
+
+      });
+  };
 
 
 

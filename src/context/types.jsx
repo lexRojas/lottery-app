@@ -1,4 +1,3 @@
-export const GET_PRESUPUESTOS = 'GET_PRESUPUESTOS'
 export const SET_ID_PROYECTO = 'SET_ID_PROYECTO'
 export const SET_ID_USUARIO = 'SET_ID_USUARIO'
 export const SET_BASEURL = 'SET_BASEURL'
