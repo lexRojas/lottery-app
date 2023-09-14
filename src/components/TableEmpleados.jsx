@@ -106,8 +106,8 @@ function TableEmpleados() {
   }, [id_proyecto]);
 
   return (
-    <div className="flex flex-row col-12 ">
-      <div className="card flex column col-4 md:flex flex-row col ">
+    <div className="flex flex-column col-12 md:flex-row">
+      <div className="card flex flex-column col-auto md:col-4">
         <DataTable
           value={datosEmpleadosDisponibles}
           size="small"
@@ -131,7 +131,7 @@ function TableEmpleados() {
         </DataTable>
       </div>
 
-      <div className="flex flex-column col-2 align-items-center justify-content-center">
+      <div className="flex flex-column col-auto md:col-2 align-items-center justify-content-center">
         <div className="flex p-1">
           <Button
             className="w-8rem"
@@ -150,7 +150,7 @@ function TableEmpleados() {
           />
         </div>
       </div>
-      <div className="card flex column col-4 md:flex flex-row col">
+      <div className="card flex flex-column col-auto md:col-4">
         <DataTable
           value={datosEmpleadosAsignados}
           size="small"
@@ -173,15 +173,15 @@ function TableEmpleados() {
           ></Column>
         </DataTable>
       </div>
-      <div className="flex flex-column col-2 align-items-center justify-content-center">
-        <div className="block align-items-center py-5">
+      <div className="flex flex-row col-12 md:flex-column md:col-2 align-items-center justify-content-center">
+        <div className="flex justify-content-center align-items-center p-5">
           <Button
             className="bg-green-500 w-8rem"
             icon=""
             label="Generar Boleta"
           />
         </div>
-        <div className="block align-items-center py-5">
+        <div className="flex justify-content-center align-items-center p-5">
           <Button className="w-8rem" icon="" label="Cancelar" />
         </div>
       </div>

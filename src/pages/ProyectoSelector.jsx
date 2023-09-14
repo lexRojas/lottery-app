@@ -72,7 +72,7 @@ function ProyectoSelector() {
   }, [tb_presupuesto]);
 
   return (
-    <div className="col-12 md:col-5 card">
+    <div className="card flex col-11 mt-2 md:col-6 ">
       <div className="flex flex-row flex-wrap align-items-center">
         <div className="flex flex-column gap-2 col md:col-9">
           <label htmlFor="txtFiltro"> Filtrar los proyectos por:</label>

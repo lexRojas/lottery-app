@@ -18,10 +18,10 @@ import ProyectoSelector from './pages/ProyectoSelector';
 
 function App() {
   return (
-    <div>
+    <div className='flex flex-column w-screen'>
       <BrowserRouter>
           <MainMenu />
-        <div className='flex  justify-content-center p-3 md:flex flex-row justify-content-center p-3'>
+        <div className='flex justify-content-center flex-wrap w-screen'>
           <Routes>
             <Route path="/App"  />
             <Route path="/proyectos" element={<ProyectoSelector />} />
