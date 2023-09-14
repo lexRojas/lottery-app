@@ -23,7 +23,7 @@ function App() {
           <MainMenu />
         <div className='flex justify-content-center flex-wrap w-screen'>
           <Routes>
-            <Route path="/App"  />
+            <Route path="/App" element={<></>} />
             <Route path="/proyectos" element={<ProyectoSelector />} />
             <Route path="/BoletaAsignacion" element={<BoletaAsignacion />} />
             <Route path="/Login" element={ <Login/> } />
