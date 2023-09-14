@@ -17,7 +17,7 @@ import Login from './pages/Login';
 import ProyectoSelector from './pages/ProyectoSelector';
 
 function App() {
-  window.location.reload(false);
+  
   return (
     <div className='flex flex-column w-screen'>
       <BrowserRouter>
